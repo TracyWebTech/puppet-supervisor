@@ -9,23 +9,23 @@ define supervisor::app (
   $service_name = $conf_file
 
   file { $conf_file:
-    path => "/etc/supervisor/conf.d/${app_name}.conf",
-    ensure => present,
+    path    => "/etc/supervisor/conf.d/${app_name}.conf",
+    ensure  => present,
     content => template('supervisor/supervisor.conf.erb'),
     require => Package['supervisor'],
-    notify => Service['supervisor'],
+    notify  => Service['supervisor'],
   }
 
   service { $service_name:
-    ensure => running,
-    path =>  ['/usr/bin'],
-    start => "supervisorctl start $app_name",
-    restart => "supervisorctl restart $app_name",
-    stop => "supervisorctl stop $app_name",
-    status => "supervisorctl status | awk '/^${name}[: ]/{print \$2}' | grep '^RUNNING$'",
-    subscribe => File[$conf_file], 
+    ensure     => running,
+    path       =>  ['/usr/bin'],
+    start      => "supervisorctl start $app_name",
+    restart    => "supervisorctl restart $app_name",
+    stop       => "supervisorctl stop $app_name",
+    status     => "supervisorctl status | awk '/^${name}[: ]/{print \$2}' | grep '^RUNNING$'",
+    subscribe  => File[$conf_file], 
     hasrestart => false, 
-    hasstatus => false,
-    provider => base
+    hasstatus  => false,
+    provider   => base
   }
 }
