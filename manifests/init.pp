@@ -7,8 +7,8 @@ class supervisor {
     ensure  => running,
     enable  => true,
     require => Package['supervisor'],
-    stop    => '/etc/init.d/supervisord stop',
-    start   => '/etc/init.d/supervisord start',
+    stop    => 'test -e /etc/init.d/supervisord && /etc/init.d/supervisord stop || /etc/init.d/supervisor stop',
+    start   => 'test -e /etc/init.d/supervisord && /etc/init.d/supervisord start || /etc/init.d/supervisor start',
     restart => 'supervisorctl update',
   }
 
