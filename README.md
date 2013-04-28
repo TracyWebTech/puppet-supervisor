@@ -20,4 +20,5 @@ supervisor::app { 'your-app-title':
   command   => 'The command that will be run this app', # required
   directory => 'Path where your command will be run' # required
   user      => 'User to execute this app' # Default to ubuntu
+}
 ```
