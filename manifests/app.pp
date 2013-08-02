@@ -13,7 +13,7 @@ define supervisor::app (
     ensure  => present,
     content => template('supervisor/supervisor.conf.erb'),
     require => Package['supervisor'],
-    notify  => Service['supervisor'],
+    notify  => Service['supervisord'],
   }
 
   service { $service_name:

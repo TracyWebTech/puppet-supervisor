@@ -1,22 +1,40 @@
 class supervisor {
+
   package { "supervisor":
-    ensure => installed,
+    ensure   => installed,
+    provider => pip,
   }
 
-  service { "supervisor":
-    ensure  => running,
-    enable  => true,
-    require => Package['supervisor'],
-    stop    => 'test -e /etc/init.d/supervisord && /etc/init.d/supervisord stop || /etc/init.d/supervisor stop',
-    start   => 'test -e /etc/init.d/supervisord && /etc/init.d/supervisord start || /etc/init.d/supervisor start',
-    restart => 'supervisorctl update',
+  service { "supervisord":
+    ensure    => running,
+    enable    => true,
+    require   => [Package['supervisor'],
+                  File['/etc/init.d/supervisord']],
+    stop      => '/etc/init.d/supervisord stop',
+    start     => '/etc/init.d/supervisord start',
+    restart   => '/usr/local/bin/supervisorctl reload',
+    subscribe => File['/etc/supervisord.conf'],
+  }
+
+  file { '/etc/init.d/supervisord':
+    source  => 'puppet:///modules/supervisor/debian-isnok',
+    mode    => '0755',
+  }
+
+  file { '/etc/supervisor':
+    ensure => directory,
+  }
+
+  file { '/etc/supervisord.conf':
+    source  => 'puppet:///modules/supervisor/supervisord.conf',
+    require => File['/etc/supervisor'],
   }
 
   file { '/etc/supervisor/conf.d/':
     ensure  => directory,
     recurse => true,
     purge   => true,
-    notify  => Service['supervisor'],
-    require => Package['supervisor']
+    notify  => Service['supervisord'],
+    require => File['/etc/supervisor'],
   }
 }
