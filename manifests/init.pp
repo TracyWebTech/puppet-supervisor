@@ -12,7 +12,7 @@ class supervisor {
                   File['/etc/init.d/supervisord']],
     stop      => '/etc/init.d/supervisord stop',
     start     => '/etc/init.d/supervisord start',
-    restart   => '/usr/local/bin/supervisorctl reload',
+    restart   => '/etc/init.d/supervisord restart',
     subscribe => File['/etc/supervisord.conf'],
   }
 
