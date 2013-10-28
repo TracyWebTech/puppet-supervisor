@@ -1,5 +1,5 @@
-name    'tracywebtech-supervisor'
-version '0.1'
+name    'seocam-supervisor'
+version '0.0.1'
 source 'https://github.com/TracyWebTech/puppet-supervisor'
 author 'Tracy Web Technologies'
 summary 'Install and configure Supervisord'
