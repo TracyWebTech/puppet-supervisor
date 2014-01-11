@@ -17,8 +17,9 @@ class supervisor {
   }
 
   case $operatingsystem {
-    debian: { $supervisord_conf = "puppet:///modules/supervisor/debian-isnok-initscript" }
-    ubuntu: { $supervisord_conf = "puppet:///modules/supervisor/ubuntu-initscript" }
+    'debian': { $supervisord_conf = "puppet:///modules/supervisor/debian-isnok-initscript" }
+    'ubuntu': { $supervisord_conf = "puppet:///modules/supervisor/ubuntu-initscript" }
+    'redhat', 'centos': { $supervisord_conf = "puppet:///modules/supervisor/redhat-init-mingalevme"}
   }
 
   file { '/etc/init.d/supervisord':
