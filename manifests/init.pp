@@ -1,5 +1,7 @@
 class supervisor {
 
+  require pip
+
   package { "supervisor":
     ensure   => installed,
     provider => pip,
