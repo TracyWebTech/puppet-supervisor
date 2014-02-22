@@ -2,7 +2,7 @@ define supervisor::app (
   $app_name = $title,
   $command,
   $directory,
-  $user = 'ubuntu',
+  $user = 'root',
   $startsecs = undef,
   $stopwaitsecs = undef,
   $priority = undef,
