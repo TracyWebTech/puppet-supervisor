@@ -6,6 +6,7 @@ define supervisor::app (
   $startsecs = undef,
   $stopwaitsecs = undef,
   $priority = undef,
+  $environment = undef,
 ) {
 
   $conf_file = "supervisor_${app_name}"

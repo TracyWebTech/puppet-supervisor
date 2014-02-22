@@ -14,3 +14,6 @@ stopwaitsecs=<%= @stopwaitsecs %>
 <%- if @priority -%>
 priority=<%= @priority %>
 <%- end -%>
+<%- if @environment %>
+environment=<% @environment.each_pair do |key,value| -%><%=key%>="<%=value%>",<% end -%>
+<%- end %>
