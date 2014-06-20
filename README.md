@@ -24,5 +24,6 @@ supervisor::app { 'your-app-title':
   startsecs    => 'The total number of seconds which the program needs to stay running after a startup to consider the start successful', # Defaults to undef
   stopwaitsecs => 'The number of seconds to wait for the OS to return a SIGCHILD to supervisord after the program has been sent a stopsignal', # Defaults to undef
   priority     => 'The relative priority of the program in the start and shutdown ordering', # Defaults to undef
+  stopsignal   => 'The signal used to kill the program when a stop is requested. This can be any of TERM, HUP, INT, QUIT, KILL, USR1, or USR2.', # Defaults to undef
 }
 ```
