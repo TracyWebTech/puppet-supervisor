@@ -7,6 +7,7 @@ define supervisor::app (
   $stopwaitsecs = undef,
   $priority = undef,
   $environment = undef,
+  $stopsignal = undef,
 ) {
 
   $conf_file = "supervisor_${app_name}"
