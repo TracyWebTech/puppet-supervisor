@@ -17,3 +17,6 @@ priority=<%= @priority %>
 <%- if @environment %>
 environment=<% @environment.each_pair do |key,value| -%><%=key%>="<%=value%>",<% end -%>
 <%- end %>
+<%- if @stopsignal %>
+stopsignal=<%= @stopsignal %>
+<%- end %>
