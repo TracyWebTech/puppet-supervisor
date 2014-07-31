@@ -2,10 +2,7 @@ class supervisor {
 
   require pip
 
-  package { "supervisor":
-    ensure   => installed,
-    provider => pip,
-  }
+  pip::install { "supervisor": }
 
   service { "supervisord":
     ensure    => running,
