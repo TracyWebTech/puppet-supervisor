@@ -7,7 +7,7 @@ class supervisor {
   service { "supervisord":
     ensure    => running,
     enable    => true,
-    require   => [Package['supervisor'],
+    require   => [Pip::Install['supervisor'],
                   File['/etc/init.d/supervisord']],
     stop      => '/etc/init.d/supervisord stop',
     start     => '/etc/init.d/supervisord start',

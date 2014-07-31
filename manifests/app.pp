@@ -17,7 +17,7 @@ define supervisor::app (
     path    => "/etc/supervisor/conf.d/${app_name}.conf",
     ensure  => present,
     content => template('supervisor/supervisor.conf.erb'),
-    require => Package['supervisor'],
+    require => Pip::Install['supervisor'],
     notify  => Service['supervisord'],
   }
 
