@@ -28,8 +28,8 @@ define supervisor::app (
     restart    => "supervisorctl restart $app_name",
     stop       => "supervisorctl stop $app_name",
     status     => "supervisorctl status | awk '/^${name}[: ]/{print \$2}' | grep '^RUNNING$'",
-    subscribe  => File[$conf_file], 
-    hasrestart => false, 
+    subscribe  => File[$conf_file],
+    hasrestart => false,
     hasstatus  => false,
     provider   => base
   }
