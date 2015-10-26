@@ -3,6 +3,7 @@ define supervisor::app (
   $command,
   $directory,
   $user = 'root',
+  $numprocs = undef,
   $startsecs = undef,
   $stopwaitsecs = undef,
   $priority = undef,

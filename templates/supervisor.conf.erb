@@ -5,6 +5,9 @@ user=<%= @user %>
 autostart=true
 autorestart=true
 redirect_stderr=True
+<%- if @numprocs -%>
+numprocs=<%= @numprocs %>
+<%- end -%>
 <%- if @startsecs -%>
 startsecs=<%= @startsecs %>
 <%- end -%>
