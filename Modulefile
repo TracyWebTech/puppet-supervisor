@@ -1,5 +1,5 @@
 name    'tracywebtech-supervisor'
-version '1.1.6'
+version '1.1.7'
 source 'https://github.com/TracyWebTech/puppet-supervisor'
 author 'Tracy Web Technologies'
 summary 'Install and configure Supervisord'
