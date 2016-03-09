@@ -24,3 +24,13 @@ environment=<% @environment.each_pair do |key,value| -%><%=key%>="<%=value%>",<%
 <%- if @stopsignal %>
 stopsignal=<%= @stopsignal %>
 <%- end %>
+<%- if @stopsignal %>
+stopsignal=<%= @stopsignal %>
+<%- end %>
+<%- if @killasgroup%>
+killasgroup=<%= @killasgroup%>
+<%- end %>
+<%- if @stopasgroup%>
+stopasgroup=<%= @stopasgroup %>
+<%- end %>
+

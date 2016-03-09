@@ -9,6 +9,8 @@ define supervisor::app (
   $priority = undef,
   $environment = undef,
   $stopsignal = undef,
+  $stopasgroup = undef,
+  $killasgroup = undef,
 ) {
 
   $conf_file = "supervisor_${app_name}"
