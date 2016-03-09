@@ -11,6 +11,7 @@ define supervisor::app (
   $stopsignal = undef,
   $stopasgroup = undef,
   $killasgroup = undef,
+  $additional_options = {},
 ) {
 
   $conf_file = "supervisor_${app_name}"
