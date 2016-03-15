@@ -32,6 +32,10 @@ class supervisor {
     ensure => directory,
   }
 
+  file { '/var/log/supervisord':
+    ensure => directory,
+  }
+
   file { '/etc/supervisord.conf':
     source  => 'puppet:///modules/supervisor/supervisord.conf',
     require => File['/etc/supervisor'],
